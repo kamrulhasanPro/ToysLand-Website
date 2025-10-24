@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@plugin 'daisyui' {
+  themes: light --default
+}
+
+/* customize theme */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #FF6F61;   /* Playful Red */
+  --color-secondary: #4CC9F0; /* Sky Blue */
+  --color-accent: #F9C74F;    /* Kids Yellow */
+  --color-neutral: #2D2D2D;   /* Dark Text */
+  --color-base-100: #FAFAFA;  /* Light Background */
+}
+
+
+
