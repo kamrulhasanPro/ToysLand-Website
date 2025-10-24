@@ -13,6 +13,16 @@
   --color-neutral: #2D2D2D;   /* Dark Text */
   --color-base-100: #FAFAFA;  /* Light Background */
 }
+/* .mySwiper{
+  height: 200px;
+} */
+.image-slider{
+  /* display: block; */
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
 
-
-
+.swiper-navigation-icon{
+  @apply text-secondary !w-10 !h-10 
+}

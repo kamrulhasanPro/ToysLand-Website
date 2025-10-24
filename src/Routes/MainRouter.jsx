@@ -1,12 +1,19 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layouts/HomeLayout";
-import AuthLayout from "./AuthLayout";
-import ToysDetailsLayout from "./ToysDetailsLayout";
+import AuthLayout from "../Layouts/AuthLayout";
+import ToysDetailsLayout from "../Layouts/ToysDetailsLayout";
+import HomePage from "../Pages/HomePage";
 
 export const MainRouter = createBrowserRouter([
     {
         path: '/',
-        Component: HomeLayout
+        Component: HomeLayout,
+        children: [
+            {
+                index: true,
+                Component: HomePage
+            }
+        ]
     },
     {
         path: '/auth',
