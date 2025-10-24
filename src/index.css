@@ -8,21 +8,17 @@
   name: "light";
   default: true;
   --color-primary: #FF6F61;   /* Playful Red */
+  --color-primary-content: #374151; /*dark 2 */
+  --color-secondary-content: #4B5563; /*dark 3 */
   --color-secondary: #4CC9F0; /* Sky Blue */
   --color-accent: #F9C74F;    /* Kids Yellow */
   --color-neutral: #2D2D2D;   /* Dark Text */
   --color-base-100: #FAFAFA;  /* Light Background */
 }
-/* .mySwiper{
-  height: 200px;
-} */
-.image-slider{
-  /* display: block; */
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
-}
+
+
+
 
 .swiper-navigation-icon{
-  @apply text-secondary !w-10 !h-10 
+  @apply text-secondary !h-7 md:!h-10
 }

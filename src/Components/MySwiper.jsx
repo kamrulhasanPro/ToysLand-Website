@@ -7,7 +7,7 @@ const MySwiper = ({ to, src }) => {
     
       <Link to={to}>
         <img
-          className="image-slider"
+          className="w-full h-36 md:h-72 xl:h-80  object-cover object-center "
           src={src}
         />
       </Link>
