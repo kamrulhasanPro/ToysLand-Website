@@ -5,10 +5,10 @@ import { FaCircleUser } from "react-icons/fa6";
 import MyContainer from "./MyContainer";
 
 const Navbar = () => {
-
+    
     const navList =<>
         <MyLink to={'/'}>Home</MyLink>
-        <MyLink to={'/about'}>About</MyLink>
+        <MyLink to={'/category/0'}>Toys</MyLink>
         <MyLink to={'/profile'}>Profile</MyLink>
     </>
 

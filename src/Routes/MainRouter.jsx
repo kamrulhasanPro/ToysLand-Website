@@ -3,6 +3,7 @@ import HomeLayout from "../Layouts/HomeLayout";
 import AuthLayout from "../Layouts/AuthLayout";
 import ToysDetailsLayout from "../Layouts/ToysDetailsLayout";
 import HomePage from "../Pages/HomePage";
+import Categories from "../Pages/Categories";
 
 export const MainRouter = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ export const MainRouter = createBrowserRouter([
             {
                 index: true,
                 Component: HomePage
+            },
+            {
+                path: '/category/:id',
+                Component: Categories
             }
         ]
     },

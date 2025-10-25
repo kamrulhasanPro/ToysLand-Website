@@ -25,9 +25,16 @@
 
 
 .section-title{
-  @apply text-secondary text-3xl font-semibold border-b-2 inline-block border-primary/20 hover:border-primary/50 transition-colors ease-in-out pb-1 cursor-default
+  @apply text-secondary text-3xl font-semibold border-b-3 inline-block border-primary/20 hover:border-primary/50 transition-colors ease-in-out pb-1 cursor-default
 }
 
 .all-items{
   @apply text-primary text-sm font-semibold border-1 py-1 px-3 rounded-3xl bg-primary/10 transition-all ease-in hover:text-secondary hover:text-[15px]
+}
+
+.category-nav .active{
+  @apply text-secondary scale-110
+}
+.category-nav .active figure{
+  @apply shadow-lg
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "categoryId": 0,
+    "categoryName": "All Toys",
+    "description": "Creative and educational puzzle toys that improve problem-solving skills.",
+    "imageURL": "https://i.postimg.cc/XYh24y7Z/Tosy-Common-CBW.jpg"
+  },
+  {
+    "categoryId": 1,
+    "categoryName": "Puzzle Game",
+    "description": "Creative and educational puzzle toys that improve problem-solving skills.",
+    "imageURL": "https://i.postimg.cc/TwJ2PnzD/1178609-magnetic-puzzle-100-pcs-for-kids-toys-gifts-and-educational-learing-300.webp"
+  },
+  {
+    "categoryId": 2,
+    "categoryName": "Remote Control Car",
+    "description": "High-speed electric cars controlled by a remote for exciting racing fun.",
+    "imageURL": "https://i.postimg.cc/Kz2vF0sr/0536813-remote-control-toys-600.jpg"
+  },
+  {
+    "categoryId": 3,
+    "categoryName": "Rocker Toy",
+    "description": "Comfortable rocking toys designed for balance and fun riding experience.",
+    "imageURL": "https://i.postimg.cc/zBrX5xc5/0536814-rocker-toys-600.jpg"
+  }
+]

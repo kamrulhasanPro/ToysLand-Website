@@ -14,7 +14,7 @@ const PuzzleGames = () => {
       {/* title */}
       <div className="flex flex-wrap items-center justify-between gap-1">
         <p className="section-title">Puzzle Games Toys</p>
-        <Link className="all-items">All Toys</Link>
+        <Link to={'/category/1'} className="all-items">More Toys</Link>
       </div>
 
       {/* remote control toys */}
