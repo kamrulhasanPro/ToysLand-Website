@@ -3,42 +3,44 @@ import { CiStar } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { IoStarOutline } from "react-icons/io5";
 
-const ToysCard = () => {
+const ToysCard = ({toys}) => {
+  const {toyName, price, rating, availableQuantity, pictureURL} = toys
   return (
-    <div className="p-4 border-gray-200 border rounded-xl space-y-4 mt-7">
+    <div className="p-4 border-gray-200 border rounded-xl 
+    flex flex-col gap-3 shadow-sm hover:shadow-lg transition-shadow">
       {/* toys image */}
-      <figure className="bg-primary/50 rounded-md h-48">
-        <img src="/vite.svg" alt="" />
+      <figure className="rounded-md overflow-hidden h-48">
+        <img src={pictureURL} alt={toyName} className="w-full h-full object-cover object-center"/>
       </figure>
 
       {/* content */}
-      <div className="space-y-0.5">
+      <div className="flex flex-col gap-0.5 grow">
         {/* title */}
-        <p className="text-2xl text-neutral font-medium">Rocker Best Kids Toys</p>
+        <p className="text-2xl text-neutral font-medium grow">{toyName}</p>
 
-        <div className="flex flex-wrap items-center gap-1 justify-between">
+        
         {/* rating */}
           <div className="flex items-center gap-0.5">
             {Array.from({ length: 5 }).map((_, index) =>
-              3 > index ? (
+              rating > index ? (
                 <FaStar className="text-accent" />
               ) : (
                 <FaRegStar className="text-accent" />
               )
             )}
-            <p className="text-secondary-content">(3)</p>
+            <p className="text-secondary-content">({rating})</p>
           </div>
 
           {/* quantity */}
-          {5 === 0 ? <p className="text-red-400 font-medium text-lg">Out Stock</p> : <p className="text-green-400 font-medium text-lg">Available Stock: 5</p>}
-        </div>
+          {availableQuantity === 0 ? <p className="text-red-400 font-medium text-lg">Out Stock</p> : <p className="text-green-400 font-medium text-lg">Available Stock: {availableQuantity}</p>}
+        
 
         {/* price */}
-        <p className="text-xl font-semibold">Tk 15000</p>
+        <p className="text-xl font-semibold">{price}$</p>
       </div>
 
       <div>
-        <button className="btn bg-secondary/60 hover:bg-secondary text-lg text-primary-content">View More</button>
+        <button className="btn bg-secondary/60 hover:bg-secondary text-sm text-primary-content">View More</button>
       </div>
     </div>
   );
