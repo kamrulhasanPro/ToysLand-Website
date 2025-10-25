@@ -1,7 +1,5 @@
 import React from "react";
-import { CiStar } from "react-icons/ci";
-import { FaRegStar, FaStar } from "react-icons/fa6";
-import { IoStarOutline } from "react-icons/io5";
+import { FaStar } from "react-icons/fa6";
 
 const ToysCard = ({toys}) => {
   const {toyName, price, rating, availableQuantity, pictureURL} = toys
@@ -22,11 +20,13 @@ const ToysCard = ({toys}) => {
         {/* rating */}
           <div className="flex items-center gap-0.5">
             {Array.from({ length: 5 }).map((_, index) =>
-              rating > index ? (
-                <FaStar className="text-accent" />
-              ) : (
-                <FaRegStar className="text-accent" />
-              )
+              <FaStar
+              key={index}
+              className={
+                rating > index ? "text-[#FF8C00]" : "text-gray-300"
+              }
+              size={14}
+            />
             )}
             <p className="text-secondary-content">({rating})</p>
           </div>

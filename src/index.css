@@ -22,3 +22,12 @@
 .swiper-navigation-icon{
   @apply text-secondary !h-7 md:!h-10
 }
+
+
+.section-title{
+  @apply text-secondary text-3xl font-semibold border-b-2 inline-block border-primary/20 hover:border-primary/50 transition-colors ease-in-out pb-1 cursor-default
+}
+
+.all-items{
+  @apply text-primary text-sm font-semibold border-1 py-1 px-3 rounded-3xl bg-primary/10 transition-all ease-in hover:text-secondary hover:text-[15px]
+}
