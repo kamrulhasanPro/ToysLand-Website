@@ -38,3 +38,7 @@
 .category-nav .active figure{
   @apply shadow-lg
 }
+
+.my-input{
+  @apply bg-base-300 focus:outline-none rounded-md p-4 placeholder:text-secondary-content
+}

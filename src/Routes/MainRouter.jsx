@@ -4,6 +4,8 @@ import AuthLayout from "../Layouts/AuthLayout";
 import ToysDetailsLayout from "../Layouts/ToysDetailsLayout";
 import HomePage from "../Pages/HomePage";
 import Categories from "../Pages/Categories";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 export const MainRouter = createBrowserRouter([
     {
@@ -21,8 +23,18 @@ export const MainRouter = createBrowserRouter([
         ]
     },
     {
-        path: '/auth',
-        Component: AuthLayout
+        path: '',
+        Component: AuthLayout,
+        children: [
+            {
+                path: '/login',
+                Component: Login
+            },
+            {
+                path: '/register',
+                Component: Register
+            }
+        ]
     },
     {
         path: '/toys-details/:id',
