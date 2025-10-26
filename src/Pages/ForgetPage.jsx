@@ -26,7 +26,7 @@ const ForgetPage = () => {
           draggable: true,
         });
         setEmail("");
-        navigate("/login");
+        navigate(-1);
       })
       .catch((err) => {
         Swal.fire({

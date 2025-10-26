@@ -9,7 +9,6 @@ const ToysDetails = ({ toy }) => {
     rating,
     availableQuantity,
     pictureURL,
-    toyId,
     description,
     sellerName,
     sellerEmail,

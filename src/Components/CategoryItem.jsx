@@ -3,11 +3,12 @@ import { NavLink, useParams } from "react-router";
 const promise = fetch("/categories.json").then((res) => res.json());
 const CategoryItem = () => {
   const categories = use(promise);
-  console.log(categories);
-    const {id} = useParams()
-    console.log(id);
+  const { id } = useParams();
+
   return (
     <section className="my-7 space-y-7">
+      
+      {/* category */}
       <div className="category-nav flex flex-wrap items-center justify-center gap-7">
         {categories.map((category) => {
           return (
@@ -27,12 +28,13 @@ const CategoryItem = () => {
           );
         })}
       </div>
-      <p className="section-title">
-        {
-            categories.map(category => id == category.categoryId && category.categoryName)
-        }
-      </p>
 
+      {/* title */}
+      <p className="section-title">
+        {categories.map(
+          (category) => id == category.categoryId && category.categoryName
+        )}
+      </p>
     </section>
   );
 };

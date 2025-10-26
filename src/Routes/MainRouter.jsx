@@ -9,11 +9,15 @@ import axios from "axios";
 import Spinner from "../Components/Spinner";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPage from "../Pages/ForgetPage";
+import PageNotFoundLayout from "../Layouts/PageNotFoundLayout";
+import AuthLayout from "../Layouts/AuthLayout";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const MainRouter = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    hydrateFallbackElement: <Spinner className={'w-screen h-screen flex items-center justify-center'}/>,
     children: [
       {
         index: true,
@@ -26,6 +30,21 @@ export const MainRouter = createBrowserRouter([
         loader: () => axios.get("/data.json"),
       },
       {
+        path: "/toys-details/:toysId",
+        element: (
+          <PrivateRoute>
+            <ToysDetailsPage />
+          </PrivateRoute>
+        ),
+        loader: () => axios.get("/data.json"),
+        ErrorBoundary: ErrorPage
+      },
+    ],
+  },
+  {
+    Component: AuthLayout,
+    children: [
+      {
         path: "/login",
         Component: Login,
       },
@@ -37,16 +56,10 @@ export const MainRouter = createBrowserRouter([
         path: "/register",
         Component: Register,
       },
-      {
-        path: "/toys-details/:toysId",
-        element: (
-          <PrivateRoute>
-            <ToysDetailsPage />
-          </PrivateRoute>
-        ),
-        loader: () => axios.get("/data.json"),
-        HydrateFallback: Spinner,
-      },
-    ],
+    ]
   },
+  {
+    path: '*',
+    Component: PageNotFoundLayout
+  }
 ]);

@@ -2,9 +2,9 @@ import React from 'react';
 
 const Spinner = ({className}) => {
     return (
-        // <div className={`mx-auto ${className}`}>
+        <div className={`${className}`}>
             <span className="loading loading-spinner loading-xl"></span>
-        // </div>
+        </div>
     );
 };
 

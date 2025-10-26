@@ -13,13 +13,10 @@ const Categories = () => {
   useEffect(() => {
     setLoader(true);
     if (id == 0) {
-    //   setTimeout(() => {
-    //     setKidsToys(toysData);
-    //     return setLoader(false);
-    //   }, 500);
-            setKidsToys(toysData);
+      setTimeout(() => {
+        setKidsToys(toysData);
         return setLoader(false);
-
+      }, 500);
     } else {
       const filter = toysData.filter((toys) => toys.category_id == id);
       setTimeout(() => {
@@ -28,7 +25,7 @@ const Categories = () => {
       }, 500);
       // console.log(filter);
     }
-  }, [toysData, id, loader, setLoader]);
+  }, [toysData, id, loader]);
 
   return (
     <section>

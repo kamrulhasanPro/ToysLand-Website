@@ -1,18 +1,19 @@
 import React from 'react';
-import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
-import { Outlet } from 'react-router';
 import MyContainer from '../Components/MyContainer';
+import { Outlet } from 'react-router';
+import Footer from '../Components/Footer';
+import Navbar from '../Components/Navbar';
+import ScrollToTop from '../Components/ScrollToTop';
 
-
-const HomeLayout = () => {
+const AuthLayout = () => {
     return (
         <div className='flex flex-col min-h-screen'>
+            <ScrollToTop/>
             <header className='bg-secondary/20 backdrop-blur-md shadow-sm z-10'>
                 <Navbar/>
             </header>
-            <MyContainer className='grow py-7 flex flex-col'>
-            <main className='grow flex flex-col'>
+            <MyContainer className='grow py-4'>
+            <main>
                 <Outlet/>                
             </main>
             </MyContainer>
@@ -24,4 +25,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default AuthLayout;

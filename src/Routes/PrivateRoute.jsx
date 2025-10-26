@@ -7,9 +7,7 @@ const PrivateRoute = ({children}) => {
     const {user, loader} = useAuth()
     const location = useLocation()
     if(loader){
-        return <div className='h-52 mx-auto'>
-            <Spinner/>
-        </div>
+        return <Spinner className={'flex grow items-center justify-center shrink'}/>
     }
 
     if(user){

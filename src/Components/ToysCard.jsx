@@ -4,6 +4,7 @@ import { Link } from "react-router";
 
 const ToysCard = ({toys}) => {
   const {toyName, price, rating, availableQuantity, pictureURL, toyId} = toys
+  
   return (
     <div className="p-4 border-gray-200 border rounded-xl 
     flex flex-col gap-3 shadow-sm hover:shadow-lg transition-shadow">
