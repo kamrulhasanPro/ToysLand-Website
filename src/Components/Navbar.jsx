@@ -5,6 +5,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import MyContainer from "./MyContainer";
 import { useAuth } from "../Hooks/useAuth";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -15,15 +16,21 @@ const Navbar = () => {
       <MyLink to={"/profile"}>Profile</MyLink>
     </>
   );
-
   const logOutClick = () => {
     logOutUser()
-      .then(() => toast.success("Log Out Success"))
+      .then(() => {
+        Swal.fire({
+          title: "Woo You are LogOut User!",
+          icon: "success",
+          draggable: true,
+        });
+        // toast.success("Log Out Success");
+      })
       .catch((err) => console.log(err));
   };
   // console.log(user?.photoURL);
 
-  const firstLatter = user && user?.displayName.slice(0, 1);
+  const firstLatter = user?.displayName?.slice(0, 1);
 
   return (
     <MyContainer className="navbar">
@@ -62,14 +69,24 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-3">
         <figure>
-          {user ? user?.photoURL.startsWith("rgb") ? (
-            <div className={`rounded-full bg-[${user?.photoURL}] w-10 h-10 rounded-full flex items-center justify-center`} style={{background: user?.photoURL}}>
-              <p className="text-2xl text-white">{firstLatter}</p>
-            </div>
+          {user ? (
+            user.photoURL ? (
+              user.photoURL.startsWith("rgb") ? (
+                <div
+                  className={`rounded-full bg-[${user?.photoURL}] w-10 h-10 rounded-full flex items-center justify-center`}
+                  style={{ background: user?.photoURL }}
+                >
+                  <p className="text-2xl text-white">{firstLatter}</p>
+                </div>
+              ) : (
+                <img src={user?.photoURL} alt="Profile image" />
+              )
+            ) : (
+              <FaCircleUser size={40} fill="#4CC9F0" />
+            )
           ) : (
-            <img src={user?.photoURL} alt="Profile image" />
-          ) : <FaCircleUser size={40} fill="#4CC9F0" />}
-          
+            <FaCircleUser size={40} fill="#4CC9F0" />
+          )}
         </figure>
         {user ? (
           <button

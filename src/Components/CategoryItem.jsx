@@ -8,7 +8,7 @@ const CategoryItem = () => {
     console.log(id);
   return (
     <section className="my-7 space-y-7">
-      <div className="category-nav flex gap-7">
+      <div className="category-nav flex flex-wrap items-center justify-center gap-7">
         {categories.map((category) => {
           return (
             <NavLink

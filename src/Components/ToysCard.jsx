@@ -1,8 +1,9 @@
 import React from "react";
 import { FaStar } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const ToysCard = ({toys}) => {
-  const {toyName, price, rating, availableQuantity, pictureURL} = toys
+  const {toyName, price, rating, availableQuantity, pictureURL, toyId} = toys
   return (
     <div className="p-4 border-gray-200 border rounded-xl 
     flex flex-col gap-3 shadow-sm hover:shadow-lg transition-shadow">
@@ -40,7 +41,7 @@ const ToysCard = ({toys}) => {
       </div>
 
       <div>
-        <button className="btn bg-secondary/60 hover:bg-secondary text-sm text-primary-content">View More</button>
+        <Link to={`/toys-details/${toyId}`} className="btn bg-secondary/60 hover:bg-secondary text-sm text-primary-content">View More</Link>
       </div>
     </div>
   );

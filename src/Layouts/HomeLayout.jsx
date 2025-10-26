@@ -20,10 +20,12 @@ const HomeLayout = () => {
             </header>
             <MyContainer className='grow py-4'>
             <main>
-                {
-                    loader ? <Spinner/> : <Outlet/>
-                }
-                
+                {/* {
+                    loader ? <div className='flex items-center justify-center grow'>
+                        <Spinner/>
+                    </div> : <Outlet/>
+                } */}
+                <Outlet/>                
             </main>
             </MyContainer>
             <footer className='bg-secondary/20'>

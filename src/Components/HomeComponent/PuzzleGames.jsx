@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { useAuth } from '../../Hooks/useAuth';
 import ToysCard from '../ToysCard';
 
-const PuzzleGames = () => {
-      const { toysData } = useAuth();
+const PuzzleGames = ({data:toysData}) => {
   const remoteToys = toysData.filter(
     (toys) => toys.category_name === "Puzzle Games"
   );

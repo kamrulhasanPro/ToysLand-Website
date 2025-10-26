@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import {useAuth} from '../Hooks/useAuth';
 import { toast } from "react-toastify";
 import Spinner from "../Components/Spinner";
+import GoogleLogin from "../Components/GoogleLogin";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,13 +23,13 @@ const Login = () => {
     .then(() => {
       toast.success('login Success')
       navigate(location?.state || '/')
+      e.target.reset()
     })
     .catch(err => {
       console.log(err);
       toast.error(err.code)
       setLoader(false)
     })
-
   }
 
   return (
@@ -81,6 +82,7 @@ const Login = () => {
 
         <button className="btn btn-secondary text-xl  mt-5 ">{loader && <Spinner/>}Login</button>
       </form>
+      <GoogleLogin/>
 
       {/* don't account */}
       <p className="text-center mt-5">

@@ -1,10 +1,8 @@
 import React from "react";
 import ToysCard from "../ToysCard";
-import { useAuth } from "../../Hooks/useAuth";
 import { Link } from "react-router";
 
-const PopularToys = () => {
-  const { toysData } = useAuth();
+const PopularToys = ({data:toysData}) => {
   const popularToys = toysData.filter((toys, index) => index % 4 == 0);
 
   return (
