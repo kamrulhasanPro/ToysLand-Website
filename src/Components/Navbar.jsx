@@ -4,7 +4,6 @@ import { Link } from "react-router";
 import { FaCircleUser } from "react-icons/fa6";
 import MyContainer from "./MyContainer";
 import { useAuth } from "../Hooks/useAuth";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Navbar = () => {

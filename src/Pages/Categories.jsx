@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../Hooks/useAuth";
 import ToysCard from "../Components/ToysCard";
 import CategoryItem from "../Components/CategoryItem";
 import { useLoaderData, useParams } from "react-router";

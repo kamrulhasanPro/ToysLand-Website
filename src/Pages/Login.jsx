@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router";
 import {useAuth} from '../Hooks/useAuth';
@@ -32,6 +32,8 @@ const Login = () => {
     })
   }
 
+  const [email, setEmail]= useState('')
+  console.log(email);
   return (
     <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5 shadow-md">
       <p className="text-center text-4xl font-semibold">Login your account</p>
@@ -45,6 +47,8 @@ const Login = () => {
           Email Address
         </label>
         <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="my-input"
           type="email"
           name="email"
@@ -76,9 +80,9 @@ const Login = () => {
         />
 
         {/* forget */}
-        <p className="cursor-pointer mt-2 text-secondary-content hover:text-neutral inline">
+        <Link to={'/login/forget'} state={{email}} className="mt-2 text-secondary-content hover:text-neutral inline">
           Forget Password
-        </p>
+        </Link>
 
         <button className="btn btn-secondary text-xl  mt-5 ">{loader && <Spinner/>}Login</button>
       </form>

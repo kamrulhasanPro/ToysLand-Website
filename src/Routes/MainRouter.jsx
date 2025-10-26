@@ -8,6 +8,7 @@ import ToysDetailsPage from "../Pages/ToysDetailsPage";
 import axios from "axios";
 import Spinner from "../Components/Spinner";
 import PrivateRoute from "./PrivateRoute";
+import ForgetPage from "../Pages/ForgetPage";
 
 export const MainRouter = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const MainRouter = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: '/login/forget',
+        Component: ForgetPage
       },
       {
         path: "/register",
