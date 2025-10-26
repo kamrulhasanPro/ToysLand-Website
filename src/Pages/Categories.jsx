@@ -7,8 +7,8 @@ import Spinner from "../Components/Spinner";
 const Categories = () => {
   const { id } = useParams();
   const { data: toysData } = useLoaderData();
-  const [loader, setLoader] = useState(true);
   const [kidsToys, setKidsToys] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     setLoader(true);
@@ -25,10 +25,11 @@ const Categories = () => {
       }, 500);
       // console.log(filter);
     }
-  }, [toysData, id, loader]);
+  }, [toysData, id]);
 
   return (
     <section>
+      <title>ToysLand || Toys</title>
       <CategoryItem />
 
       {/* remote control toys */}

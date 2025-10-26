@@ -38,6 +38,7 @@ const ForgetPage = () => {
   };
   return (
     <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5 shadow-md">
+            <title>ToysLand || Forget</title>
       <p className="text-center text-4xl font-semibold">Forget Password</p>
       <hr className="my-10 border-1 border-base-200" />
       <form onSubmit={forgetSubmit} className="flex flex-col">

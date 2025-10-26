@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router";
 import {useAuth} from '../Hooks/useAuth';
@@ -11,6 +11,7 @@ const Login = () => {
   const {loginUser, loader, setLoader} = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const [email, setEmail]= useState('')
 
   const loginSubmit = (e) => {
     e.preventDefault();
@@ -32,10 +33,9 @@ const Login = () => {
     })
   }
 
-  const [email, setEmail]= useState('')
-  console.log(email);
   return (
     <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5 shadow-md">
+      <title>ToysLand || Login</title>
       <p className="text-center text-4xl font-semibold">Login your account</p>
       <hr className="my-10 border-1 border-base-200" />
       <form onSubmit={loginSubmit} className="flex flex-col">
