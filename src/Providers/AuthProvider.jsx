@@ -1,26 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
 
 
 const AuthProvider = ({children}) => {
 
-    const [toysData, setToysData] = useState([])
     const [loader, setLoader] = useState(true)
     const [user, setUser] = useState(null)
 
-    useEffect(()=>{
-        try {
-            fetch('/data.json')
-            .then(res => res.json())
-            .then(data => {
-                setToysData(data)
-            })
-        } catch (error) {
-            console.log(error);
-        }
-    },[])
+
 
 
     // create user
@@ -41,6 +30,11 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    // another login system 
+    const otherLogin = (provider) => {
+        return signInWithPopup(auth, provider )
+    }
+
     // store data
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -53,12 +47,12 @@ const AuthProvider = ({children}) => {
 
 
     const authInfo = {
-        toysData,
         loader, 
         setLoader,
         createUser,
         loginUser,
         logOutUser,
+        otherLogin,
         user
     }
 

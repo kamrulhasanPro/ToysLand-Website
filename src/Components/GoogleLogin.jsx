@@ -1,9 +1,28 @@
 import React from "react";
+import { useAuth } from "../Hooks/useAuth";
+import { googleProvider } from "../firebase/firebase.config";
+import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router";
 
 const GoogleLogin = () => {
+  const { otherLogin } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const googleLogin = () => {
+    otherLogin(googleProvider)
+      .then(() => {
+        toast.success("User Login Success.");
+        navigate(location?.state || "/");
+      })
+      .catch((err) => toast.error(err.code));
+  };
   return (
     // Google
-    <button className="btn btn-block bg-white text-black border-[#e5e5e5] mt-3">
+    <button
+      onClick={googleLogin}
+      className="btn btn-block bg-white text-black border-[#e5e5e5] mt-3"
+    >
       <svg
         aria-label="Google logo"
         width="30"

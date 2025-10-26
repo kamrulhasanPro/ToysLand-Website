@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import { useAuth } from "../Hooks/useAuth";
 import Spinner from "../Components/Spinner";
+import GoogleLogin from "../Components/GoogleLogin";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -158,6 +159,9 @@ const Register = () => {
           {loader && <Spinner/>}Registration
         </button>
       </form>
+      
+      {/* google login */}
+      <GoogleLogin/>
 
       {/* already account */}
       <p className="text-center mt-5">

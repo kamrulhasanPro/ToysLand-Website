@@ -28,7 +28,7 @@ const Navbar = () => {
       })
       .catch((err) => console.log(err));
   };
-  // console.log(user?.photoURL);
+  console.log(user?.photoURL);
 
   const firstLatter = user?.displayName?.slice(0, 1);
 
@@ -68,18 +68,18 @@ const Navbar = () => {
         <ul className="menu-horizontal space-x-5 px-1">{navList}</ul>
       </div>
       <div className="navbar-end gap-3">
-        <figure>
+        <figure className="rounded-full overflow-hidden">
           {user ? (
             user.photoURL ? (
               user.photoURL.startsWith("rgb") ? (
                 <div
-                  className={`rounded-full bg-[${user?.photoURL}] w-10 h-10 rounded-full flex items-center justify-center`}
+                  className={`rounded-full bg-[${user?.photoURL}] w-10 h-10 flex items-center justify-center`}
                   style={{ background: user?.photoURL }}
                 >
                   <p className="text-2xl text-white">{firstLatter}</p>
                 </div>
               ) : (
-                <img src={user?.photoURL} alt="Profile image" />
+                <img className="w-10 h-10" src={user?.photoURL} alt="Profile image" />
               )
             ) : (
               <FaCircleUser size={40} fill="#4CC9F0" />

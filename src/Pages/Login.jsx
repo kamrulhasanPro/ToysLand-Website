@@ -82,6 +82,8 @@ const Login = () => {
 
         <button className="btn btn-secondary text-xl  mt-5 ">{loader && <Spinner/>}Login</button>
       </form>
+
+      {/* google login */}
       <GoogleLogin/>
 
       {/* don't account */}
