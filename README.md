@@ -1,16 +1,62 @@
-# React + Vite
+# 📃 App: ToysLand
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern kids toys application. This application for children. ToysLand provide just 3 category toys. Puzzles Games, Remote control car and Rocker Toys get the ToysLand app. So need you children toys visit ToysLand app.
+---
 
-Currently, two official plugins are available:
+## 🔗 Live Website
+**Live URL:** https://toysland-5cdae.web.app  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Project Purpose
+This project main purpose of the modern simple and best UI design toys app for children. The app added very secure authentication system, find category wise toys and easily find popular toys.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🌟 Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User authentication (Login/Register) using Firebase
+- Private routes for secured pages
+- Dynamic routing with React Router
+- Category-based toy filtering
+- Responsive UI with mobile-first design
+- Update your profile
+- Real-time toast and alert notifications
+- Loading states using spinners
+- Active navigation route highlighting
+- Environment variable secured Firebase configuration
+
+---
+
+## 📦 NPM Packages Used
+
+| Package | Purpose |
+|--------|---------|
+| React | Core UI development |
+| React Router DOM | Routing and navigation |
+| Firebase | Authentication and backend services |
+| Axios | Data fetching |
+| React Icons | Icons and vector assets |
+| SweetAlert2 | Popup alerts |
+| React-Toastify | Toast notifications |
+| Swiper | For add slider  |
+| DaisyUI + Tailwind CSS | UI components and styling |
+
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend**: React, Tailwind CSS, DaisyUI
+- **Authentication**: Firebase 
+- **Hosting**: Firebase
+
+---
+
+## ✅ How to Run Locally
+
+```bash
+git clone https://github.com/your-client-repo
+cd your-project-folder
+npm install
+npm run dev
