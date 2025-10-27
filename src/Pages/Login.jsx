@@ -27,7 +27,7 @@ const Login = () => {
       e.target.reset()
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       toast.error(err.code)
       setLoader(false)
     })

@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const ProfilePage = () => {
   const { user, updateUserProfile } = useAuth();
-  console.log(user);
+  // console.log(user);
   const { photoURL, displayName, email } = user;
   const firstLatter = user?.displayName?.slice(0, 1);
   const [edit, setEdit] = useState(false);

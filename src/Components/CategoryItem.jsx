@@ -12,7 +12,7 @@ const CategoryItem = () => {
       <div className="category-nav flex flex-wrap items-center justify-center gap-7">
         {categories.map((category) => {
           return (
-            <NavLink
+            <NavLink key={category.categoryId}
               to={`/category/${category.categoryId}`}
               className=" flex flex-col items-center text-neutral hover:text-secondary hover:scale-110 transition-all"
             >

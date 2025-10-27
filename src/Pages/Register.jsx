@@ -9,7 +9,7 @@ import GoogleLogin from "../Components/GoogleLogin";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, loader, setLoader } = useAuth();
+  const { createUser, loader, setLoader, logOutUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -54,10 +54,13 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        updateProfile(user, { displayName: name, photoURL }).then().catch();
+        updateProfile(user, { displayName: name, photoURL }).then(() => {
+          logOutUser()
+          .then()
+        }).catch(err => toast.error(err.code));
         e.target.reset();
-        toast.success("Register Success");
-        navigate(location?.state || "/");
+        toast.success("Success register. Please Login");
+        navigate('/login');
       })
       .catch((err) => {
         toast.error(err.code)

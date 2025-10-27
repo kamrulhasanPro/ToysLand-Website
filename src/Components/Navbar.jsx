@@ -6,6 +6,7 @@ import MyContainer from "./MyContainer";
 import { useAuth } from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import NavProfile from "./NavProfile";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -26,7 +27,7 @@ const Navbar = () => {
         });
         // toast.success("Log Out Success");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error(err.code));
   };
 
   const firstLatter = user?.displayName?.slice(0, 1);
