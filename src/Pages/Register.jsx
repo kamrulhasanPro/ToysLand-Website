@@ -69,7 +69,7 @@ const Register = () => {
     <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5">
             <title>ToysLand || Registration</title>
       <p className="text-center text-4xl font-semibold">Register your account</p>
-      <hr className="my-10 border-1 border-base-200" />
+      <hr className="my-10 border border-base-200" />
 
       {/* register from */}
       <form onSubmit={registerSubmit} className="flex flex-col">

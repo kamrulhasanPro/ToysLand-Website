@@ -1,10 +1,11 @@
 import React from "react";
 import MyLink from "./MyLink";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FaCircleUser } from "react-icons/fa6";
 import MyContainer from "./MyContainer";
 import { useAuth } from "../Hooks/useAuth";
 import Swal from "sweetalert2";
+import NavProfile from "./NavProfile";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -27,7 +28,6 @@ const Navbar = () => {
       })
       .catch((err) => console.log(err));
   };
-  console.log(user?.photoURL);
 
   const firstLatter = user?.displayName?.slice(0, 1);
 
@@ -66,19 +66,23 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu-horizontal space-x-5 px-1">{navList}</ul>
       </div>
-      <div className="navbar-end gap-3">
-        <figure className="rounded-full overflow-hidden">
+      <div className="navbar-end dropdown dropdown-end gap-3">
+        <figure className="rounded-full cursor-pointer overflow-hidden group">
           {user ? (
             user.photoURL ? (
               user.photoURL.startsWith("rgb") ? (
                 <div
-                  className={`rounded-full bg-[${user?.photoURL}] w-10 h-10 flex items-center justify-center`}
+                  className={`bg-[${user?.photoURL}] w-10 h-10 flex items-center justify-center`}
                   style={{ background: user?.photoURL }}
                 >
                   <p className="text-2xl text-white">{firstLatter}</p>
                 </div>
               ) : (
-                <img className="w-10 h-10" src={user?.photoURL} alt="Profile image" />
+                <img
+                  className="w-10 h-10"
+                  src={user?.photoURL}
+                  alt="Profile image"
+                />
               )
             ) : (
               <FaCircleUser size={40} fill="#4CC9F0" />
@@ -86,7 +90,13 @@ const Navbar = () => {
           ) : (
             <FaCircleUser size={40} fill="#4CC9F0" />
           )}
+          {user && (
+            <div className="hidden group-hover:block">
+              <NavProfile />
+            </div>
+          )}
         </figure>
+
         {user ? (
           <button
             onClick={logOutClick}

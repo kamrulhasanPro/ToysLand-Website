@@ -1,15 +1,16 @@
-import React from 'react';
+import React from "react";
 import { useNavigate } from 'react-router';
 import notFoundPng from '../assets/404_page_not_found.png'
 
 const PageNotFoundLayout = () => {
-    const navigate = useNavigate()
+        const navigate = useNavigate()
+
   return (
     <>
       <main className="grid min-h-screen place-items-center bg-gray-200 px-6 lg:px-8">
         <div className="text-center">
           {/* <p className="font-semibold text-primary text-3xl">404</p> */}
-          <img src={notFoundPng} alt="404 png" className='w-96 mx-auto' />
+          <img src={notFoundPng} alt="404 png" className="w-96 mx-auto" />
           <h1 className=" text-5xl font-semibold tracking-tight text-balance text-neutral sm:text-7xl">
             Page not found
           </h1>
@@ -18,7 +19,7 @@ const PageNotFoundLayout = () => {
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <button
-              onClick={()=> navigate(-1)}
+              onClick={() => navigate(-1)}
               className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer"
             >
               Go Back
@@ -27,8 +28,7 @@ const PageNotFoundLayout = () => {
         </div>
       </main>
     </>
-  )
-}
-
+  );
+};
 
 export default PageNotFoundLayout;

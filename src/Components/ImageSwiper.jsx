@@ -13,7 +13,7 @@ const ImageSwiper = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
-        autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
+        autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
         navigation
         pagination={{ clickable: true }}
         slidesPerView={1}

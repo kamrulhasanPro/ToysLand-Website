@@ -9,14 +9,17 @@ import axios from "axios";
 import Spinner from "../Components/Spinner";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPage from "../Pages/ForgetPage";
-import PageNotFoundLayout from "../Layouts/PageNotFoundLayout";
+// import Error_NotFoundLayout from "../Layouts/Error&NotFoundLayout";
 import AuthLayout from "../Layouts/AuthLayout";
 import ErrorPage from "../Pages/ErrorPage";
+import PageNotFoundLayout from "../Layouts/PageNotFoundLayout";
+import ProfilePage from "../Pages/ProfilePage";
 
 export const MainRouter = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    errorElement: <ErrorPage issue={true}/>,
     hydrateFallbackElement: <Spinner className={'w-screen h-screen flex items-center justify-center'}/>,
     children: [
       {
@@ -31,14 +34,22 @@ export const MainRouter = createBrowserRouter([
       },
       {
         path: "/toys-details/:toysId",
+        errorElement: <ErrorPage issue={false}/>,
         element: (
           <PrivateRoute>
             <ToysDetailsPage />
           </PrivateRoute>
         ),
         loader: () => axios.get("/data.json"),
-        ErrorBoundary: ErrorPage
       },
+      {
+        path: '/profile',
+        element: (
+          <PrivateRoute>
+            <ProfilePage/>
+          </PrivateRoute>
+        )
+      }
     ],
   },
   {
@@ -60,6 +71,6 @@ export const MainRouter = createBrowserRouter([
   },
   {
     path: '*',
-    Component: PageNotFoundLayout
+    Component:PageNotFoundLayout,
   }
 ]);

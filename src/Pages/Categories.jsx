@@ -32,10 +32,10 @@ const Categories = () => {
       <title>ToysLand || Toys</title>
       <CategoryItem />
 
-      {/* remote control toys */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 mt-7">
+      {/* category wise toys */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-7 mt-7">
         {loader ? (
-          <div className="col-span-4 mx-auto">
+          <div className="col-span-5 mx-auto">
             <Spinner />
           </div>
         ) : (

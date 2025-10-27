@@ -29,7 +29,7 @@
 }
 
 .all-items{
-  @apply text-primary text-sm font-semibold border-1 py-1 px-3 rounded-3xl bg-primary/10 transition-all ease-in hover:text-secondary hover:text-[15px]
+  @apply text-primary text-sm font-semibold border py-1 px-3 rounded-3xl bg-primary/10 transition-all ease-in hover:text-secondary hover:text-[15px]
 }
 
 .category-nav .active{

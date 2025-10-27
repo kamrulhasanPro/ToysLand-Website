@@ -24,7 +24,7 @@ const ToysDetails = ({ toy }) => {
         {/* toys details */}
       <div className="flex flex-col sm:flex-row gap-7">
         {/* toys image */}
-        <figure className="rounded-md basis-5/12 overflow-hidden h-72">
+        <figure className="rounded-md basis-5/12 overflow-hidden">
           <img
             src={pictureURL}
             alt={toyName}

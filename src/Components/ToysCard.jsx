@@ -9,7 +9,7 @@ const ToysCard = ({toys}) => {
     <div className="p-4 border-gray-200 border rounded-xl 
     flex flex-col gap-3 shadow-sm hover:shadow-lg transition-shadow">
       {/* toys image */}
-      <figure className="rounded-md overflow-hidden h-48">
+      <figure className="rounded-md overflow-hidden h-46 2xl:h-72 shadow">
         <img src={pictureURL} alt={toyName} className="w-full h-full object-cover object-center"/>
       </figure>
 
