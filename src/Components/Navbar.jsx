@@ -59,8 +59,9 @@ const Navbar = () => {
             {navList}
           </ul>
         </div>
-        <Link to={"/"} className="text-xl font-bold px-1.5">
-          ToysLand
+        <Link to={"/"} className="text-xl font-bold px-1.5 flex items-center justify-center gap-1.5">
+        <img src={'logo.svg'} alt="logo" />
+          <p className="hidden md:block">ToysLand</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
