@@ -54,31 +54,34 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        updateProfile(user, { displayName: name, photoURL }).then(() => {
-          logOutUser()
-          .then()
-        }).catch(err => toast.error(err.code));
+        updateProfile(user, { displayName: name, photoURL })
+          .then(() => {
+            logOutUser().then();
+          })
+          .catch((err) => toast.error(err.code));
         e.target.reset();
         toast.success("Success register. Please Login");
-        navigate('/login');
+        navigate("/login");
       })
       .catch((err) => {
-        toast.error(err.code)
-        setLoader(false)
+        toast.error(err.code);
+        setLoader(false);
       });
   };
 
   return (
-    <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5">
-            <title>ToysLand || Registration</title>
-      <p className="text-center text-4xl font-semibold">Register your account</p>
-      <hr className="my-10 border border-base-200" />
+    <div className="max-w-[600px] mx-auto bg-primary/20 p-10 rounded-md mt-2.5">
+      <title>ToysLand || Registration</title>
+      <p className="text-center text-4xl font-semibold">
+        Register your account
+      </p>
+      <hr className="mt-10 border border-base-200" />
 
       {/* register from */}
       <form onSubmit={registerSubmit} className="flex flex-col">
         {/* Name */}
         <label
-          className="text-xl text-neutral font-semibold mb-2 mt-5"
+          className="text-lg text-neutral font-semibold mt-2 "
           htmlFor="name"
         >
           Your Name
@@ -95,7 +98,7 @@ const Register = () => {
 
         {/* PhotoUrl */}
         <label
-          className="text-xl text-neutral font-semibold mb-2 mt-5"
+          className="text-lg text-neutral font-semibold mt-2 "
           htmlFor="photoURL"
         >
           Photo URL (optional)
@@ -111,7 +114,7 @@ const Register = () => {
 
         {/* email */}
         <label
-          className="text-xl text-neutral font-semibold mb-2 mt-5"
+          className="text-lg text-neutral font-semibold mt-2 "
           htmlFor="email"
         >
           Email Address
@@ -128,13 +131,13 @@ const Register = () => {
 
         {/* password */}
         <label
-          className="text-xl text-neutral font-semibold mb-2 mt-5 relative"
+          className="text-lg text-neutral font-semibold mt-2 relative"
           htmlFor="password"
         >
           Password
           <div
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-0 p-4 -bottom-15.5 cursor-pointer"
+            className="absolute right-0 p-4 top-6 cursor-pointer"
           >
             {showPassword ? <IoEye /> : <IoEyeOff />}
           </div>
@@ -160,13 +163,13 @@ const Register = () => {
           <label htmlFor="check">Accept Term & Conditions</label>
         </div>
 
-        <button className="btn btn-secondary text-xl  mt-5">
-          {loader && <Spinner/>}Registration
+        <button className="my_btn !py-2 text-lg mt-2">
+          {loader && <Spinner />}Registration
         </button>
       </form>
-      
+
       {/* google login */}
-      <GoogleLogin/>
+      <GoogleLogin />
 
       {/* already account */}
       <p className="text-center mt-5">

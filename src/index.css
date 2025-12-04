@@ -1,44 +1,65 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin 'daisyui' {
-  themes: light --default
+  themes: light --default;
 }
 
 /* customize theme */
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #FF6F61;   /* Playful Red */
+  --color-primary: #7e57c2; /* Playful Red */
   --color-primary-content: #374151; /*dark 2 */
-  --color-secondary-content: #4B5563; /*dark 3 */
-  --color-secondary: #4CC9F0; /* Sky Blue */
-  --color-accent: #F9C74F;    /* Kids Yellow */
-  --color-neutral: #2D2D2D;   /* Dark Text */
-  --color-base-100: #FAFAFA;  /* Light Background */
+  --color-secondary-content: #4b5563; /*dark 3 */
+  --color-secondary: #4cc9f0; /* Sky Blue */
+  --color-accent: #f9c74f; /* Kids Yellow */
+  --color-neutral: #2d2d2d; /* Dark Text */
+  --color-base-100: #fafafa; /* Light Background */
 }
 
-
-
-
-.swiper-navigation-icon{
-  @apply text-secondary !h-7 md:!h-10
+/* Custom small screen */
+@media (max-width: 600px) {
+  .xs_col_1 {
+    @apply grid-cols-1;
+  }
 }
 
-
-.section-title{
-  @apply text-secondary text-3xl font-semibold border-b-3 inline-block border-primary/20 hover:border-primary/50 transition-colors ease-in-out pb-1 cursor-default
+body {
+  background-color: #f8f4fc; /* very light purple */
+  color: #7e57c2; /* primary color text accents */
 }
 
-.all-items{
-  @apply text-primary text-sm font-semibold border py-1 px-3 rounded-3xl bg-primary/10 transition-all ease-in hover:text-secondary hover:text-[15px]
+.swiper-navigation-icon {
+  @apply text-secondary !h-7 md:!h-10;
 }
 
-.category-nav .active{
-  @apply text-secondary scale-110
-}
-.category-nav .active figure{
-  @apply shadow-lg
+.section-title {
+  @apply text-primary text-3xl font-semibold border-b-3 inline-block border-primary/20 hover:border-primary/50 transition-colors ease-in-out pb-1 cursor-default;
 }
 
-.my-input{
-  @apply bg-base-300 focus:outline-none rounded-md p-4 placeholder:text-secondary-content
+.all-items {
+  @apply text-primary text-sm font-semibold border py-1 px-3 rounded-3xl bg-primary/10 transition-all ease-in hover:text-secondary hover:text-[15px];
+}
+
+.category-nav .active {
+  @apply text-primary scale-110;
+}
+.category-nav .active figure {
+  @apply shadow-lg border-2 border-primary;
+}
+
+.my-input {
+  @apply bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary  rounded-md p-2 placeholder:text-secondary-content transition;
+}
+
+/* .my-input {
+  @apply  text-gray-800 
+         focus:outline-none focus:ring-4 focus:ring-purple-300 
+         rounded-2xl p-3 placeholder:text-gray-600 
+         transition-all duration-300 shadow-md hover:shadow-lg;
+
+  @apply transform hover:-translate-y-1;
+} */
+
+.my_btn {
+  @apply bg-linear-to-l from-primary to-blue-800 py-1 px-2 text-white rounded-sm text-sm hover:brightness-120 hover:scale-105 transition cursor-pointer;
 }

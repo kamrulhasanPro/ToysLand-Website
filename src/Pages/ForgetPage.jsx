@@ -37,7 +37,7 @@ const ForgetPage = () => {
       });
   };
   return (
-    <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5 shadow-md">
+    <div className="max-w-[600px] mx-auto bg-primary/20 p-10 rounded-md mt-2.5 shadow-md">
       <title>ToysLand || Forget</title>
       <p className="text-center text-4xl font-semibold">Forget Password</p>
       <hr className="my-10 border border-base-200" />
@@ -59,7 +59,7 @@ const ForgetPage = () => {
           autoComplete="email"
           placeholder="Enter your email address"
         />
-        <button className="btn btn-secondary text-xl  mt-5 ">Reset</button>
+        <button className="my_btn !py-2 text-lg  mt-5 ">Reset</button>
       </form>
 
       {/* don't account */}

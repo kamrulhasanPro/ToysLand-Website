@@ -34,14 +34,14 @@ const Login = () => {
   }
 
   return (
-    <div className="max-w-[600px] mx-auto bg-secondary/40 p-10 rounded-md mt-2.5 shadow-md">
+    <div className="max-w-[600px] mx-auto bg-primary/20 p-10 rounded-md mt-2.5 shadow-md">
       <title>ToysLand || Login</title>
       <p className="text-center text-4xl font-semibold">Login your account</p>
       <hr className="my-10 border border-base-200" />
       <form onSubmit={loginSubmit} className="flex flex-col">
         {/* email */}
         <label
-          className="text-xl text-neutral font-semibold mb-2 mt-5"
+          className="text-lg text-neutral font-semibold mt-2"
           htmlFor="email"
         >
           Email Address
@@ -59,13 +59,13 @@ const Login = () => {
 
         {/* password */}
         <label
-          className="text-xl text-neutral font-semibold mb-2 mt-5 relative"
+          className="text-lg text-neutral font-semibold mt-2 relative"
           htmlFor="password"
         >
           Password
           <div
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-0 p-4 -bottom-15.5 cursor-pointer"
+            className="absolute right-0 p-4 top-6 cursor-pointer"
           >
             {showPassword ? <IoEye /> : <IoEyeOff />}
           </div>
@@ -84,7 +84,7 @@ const Login = () => {
           Forget Password
         </Link>
 
-        <button className="btn btn-secondary text-xl  mt-5 ">{loader && <Spinner/>}Login</button>
+        <button className="my_btn !py-2 text-lg  mt-5 ">{loader && <Spinner/>}Login</button>
       </form>
 
       {/* google login */}

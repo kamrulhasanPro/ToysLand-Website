@@ -9,7 +9,7 @@ const AuthLayout = () => {
     return (
         <div className='flex flex-col min-h-screen'>
             <ScrollToTop/>
-            <header className='bg-secondary/20 backdrop-blur-md shadow-sm z-10'>
+            <header className='bg-primary/10 backdrop-blur-md shadow-sm z-10'>
                 <Navbar/>
             </header>
             <MyContainer className='grow py-4'>
@@ -17,7 +17,7 @@ const AuthLayout = () => {
                 <Outlet/>                
             </main>
             </MyContainer>
-            <footer className='bg-secondary/20'>
+            <footer className='bg-primary/20'>
             <Footer/>
             </footer>
 

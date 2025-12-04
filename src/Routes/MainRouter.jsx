@@ -14,13 +14,19 @@ import AuthLayout from "../Layouts/AuthLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import PageNotFoundLayout from "../Layouts/PageNotFoundLayout";
 import ProfilePage from "../Pages/ProfilePage";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 export const MainRouter = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
-    errorElement: <ErrorPage issue={true}/>,
-    hydrateFallbackElement: <Spinner className={'w-screen h-screen flex items-center justify-center'}/>,
+    errorElement: <ErrorPage issue={true} />,
+    hydrateFallbackElement: (
+      <Spinner
+        className={"w-screen h-screen flex items-center justify-center"}
+      />
+    ),
     children: [
       {
         index: true,
@@ -34,22 +40,26 @@ export const MainRouter = createBrowserRouter([
       },
       {
         path: "/toys-details/:toysId",
-        errorElement: <ErrorPage issue={false}/>,
-        element: (
-          <PrivateRoute>
-            <ToysDetailsPage />
-          </PrivateRoute>
-        ),
+        errorElement: <ErrorPage issue={false} />,
+        element: <ToysDetailsPage />,
         loader: () => axios.get("/data.json"),
       },
       {
-        path: '/profile',
+        path: '/about',
+        Component: About
+      },
+      {
+        path: '/contact-us',
+        Component: Contact
+      },
+      {
+        path: "/profile",
         element: (
           <PrivateRoute>
-            <ProfilePage/>
+            <ProfilePage />
           </PrivateRoute>
-        )
-      }
+        ),
+      },
     ],
   },
   {
@@ -60,17 +70,17 @@ export const MainRouter = createBrowserRouter([
         Component: Login,
       },
       {
-        path: '/login/forget',
-        Component: ForgetPage
+        path: "/login/forget",
+        Component: ForgetPage,
       },
       {
         path: "/register",
         Component: Register,
       },
-    ]
+    ],
   },
   {
-    path: '*',
-    Component:PageNotFoundLayout,
-  }
+    path: "*",
+    Component: PageNotFoundLayout,
+  },
 ]);

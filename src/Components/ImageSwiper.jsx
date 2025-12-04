@@ -7,7 +7,10 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MySwiper from "./MySwiper";
 
-const ImageSwiper = () => {
+const ImageSwiper = ({ data }) => {
+  // const sorting = data.sort((a, b) => b.createdAt - a.createdAt);
+  // console.log(sorting);
+
   return (
     <div className="rounded-lg overflow-hidden">
       <Swiper

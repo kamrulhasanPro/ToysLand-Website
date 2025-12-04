@@ -2,26 +2,26 @@ import React from "react";
 import ToysCard from "../ToysCard";
 import { Link } from "react-router";
 
-const RemoteControlToys = ({data:toysData}) => {
-
-  const remoteToys = toysData.filter(
-    (toys) => toys.category_name === "Remote Control Cars"
-  );
+const RemoteControlToys = ({ data: toysData }) => {
+  const remoteToys = toysData
+    .filter((toys) => toys.category_name === "Remote Control Cars")
+    .slice(0, 4);
 
   return (
     <section>
       {/* title */}
       <div className="flex flex-wrap items-center justify-between gap-1">
         <p className="section-title">Remote Control Toys</p>
-        <Link to={'/category/2'} className="all-items">More Toys</Link>
+        <Link to={"/category/2"} className="all-items">
+          More Toys
+        </Link>
       </div>
 
       {/* remote control toys */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-7">
-        {remoteToys.map(
-          (toys, index) =>
-            index < 3 && <ToysCard key={toys.toyId} toys={toys} />
-        )}
+      <div className="grid xs_col_1 grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-7 mt-7">
+        {remoteToys.map((toys) => (
+          <ToysCard key={toys.toyId} toys={toys} />
+        ))}
       </div>
     </section>
   );

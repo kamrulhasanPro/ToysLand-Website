@@ -10,11 +10,13 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
+  console.log(user);
   const navList = (
     <>
       <MyLink to={"/"}>Home</MyLink>
       <MyLink to={"/category/0"}>Toys</MyLink>
-      <MyLink to={"/profile"}>Profile</MyLink>
+      <MyLink to={"/about"}>About Us</MyLink>
+      <MyLink to={"/contact-us"}>Contact Us</MyLink>
     </>
   );
   const logOutClick = () => {
@@ -30,10 +32,13 @@ const Navbar = () => {
       .catch((err) => toast.error(err.code));
   };
 
+  const isRGB =
+    typeof user?.photoURL === "string" && /^rgba?\(/i.test(user.photoURL);
+
   const firstLatter = user?.displayName?.slice(0, 1);
 
   return (
-    <MyContainer className="navbar">
+    <MyContainer className="navbar ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,8 +65,11 @@ const Navbar = () => {
             {navList}
           </ul>
         </div>
-        <Link to={"/"} className="text-xl font-bold px-1.5 flex items-center justify-center gap-1.5">
-        <img src={'logo.svg'} alt="logo" />
+        <Link
+          to={"/"}
+          className="text-xl font-bold px-1.5 flex items-center justify-center gap-1.5"
+        >
+          <img src={"logo.svg"} alt="logo" />
           <p className="hidden md:block">ToysLand</p>
         </Link>
       </div>
@@ -69,48 +77,75 @@ const Navbar = () => {
         <ul className="menu-horizontal space-x-5 px-1">{navList}</ul>
       </div>
       <div className="navbar-end dropdown dropdown-end gap-3">
-        <figure className="rounded-full cursor-pointer overflow-hidden group">
-          {user ? (
-            user.photoURL ? (
-              user.photoURL.startsWith("rgb") ? (
-                <div
-                  className={`bg-[${user?.photoURL}] w-10 h-10 flex items-center justify-center`}
-                  style={{ background: user?.photoURL }}
-                >
-                  <p className="text-2xl text-white">{firstLatter}</p>
-                </div>
-              ) : (
-                <img
-                  className="w-10 h-10"
-                  src={user?.photoURL}
-                  alt="Profile image"
-                />
-              )
-            ) : (
-              <FaCircleUser size={40} fill="#4CC9F0" />
-            )
-          ) : (
-            <FaCircleUser size={40} fill="#4CC9F0" />
-          )}
+        <figure className="rounded-full cursor-pointer  ">
           {user && (
-            <div className="hidden group-hover:block">
-              <NavProfile />
+            <div className="">
+              {/* <NavProfile /> */}
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    {user &&
+                      (user.photoURL ? (
+                        isRGB ? (
+                          <div
+                            className={`flex items-center justify-center`}
+                            style={{ background: user?.photoURL }}
+                          >
+                            <p className="text-2xl text-white">{firstLatter}</p>
+                          </div>
+                        ) : (
+                          <img
+                            className="w-10 h-10"
+                            src={user?.photoURL}
+                            alt="Profile image"
+                          />
+                        )
+                      ) : (
+                        <FaCircleUser size={40} fill="#4CC9F0" />
+                      ))}
+                  </div>
+                </div>
+                <ul
+                  tabIndex="-1"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 p-2 w-52 shadow"
+                >
+                  <div className="flex gap-2 items-center">
+                    <img
+                      src={user?.photoURL}
+                      className="w-10 h-10 object-cover rounded-full"
+                      alt=""
+                    />
+                    <div>
+                      <h4 className="font-semibold">{user?.displayName}</h4>
+                      {/* <p className="text-sm text-wrap">{user?.email}</p> */}
+                    </div>
+                  </div>
+                  <div className="divider !my-0"></div>
+                  <MyLink className={""} to={"/profile"}>
+                    Profile
+                  </MyLink>
+
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <button
+                    onClick={logOutClick}
+                    className="btn btn-error text-white !py-0.5"
+                  >
+                    LogOut
+                  </button>
+                </ul>
+              </div>
             </div>
           )}
         </figure>
 
-        {user ? (
-          <button
-            onClick={logOutClick}
-            className="btn btn-primary border-primary hover:scale-105 transition px-5 text-xl"
-          >
-            LogOut
-          </button>
-        ) : (
-          <Link
-            to={"/login"}
-            className="btn btn-secondary border-secondary hover:scale-105 transition px-5 text-xl"
-          >
+        {!user && (
+          <Link to={"/login"} className="my_btn !text-lg !px-4">
             Login
           </Link>
         )}

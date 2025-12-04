@@ -9,6 +9,7 @@ const Categories = () => {
   const { data: toysData } = useLoaderData();
   const [kidsToys, setKidsToys] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [sorting, setSorting] = useState("");
 
   useEffect(() => {
     setLoader(true);
@@ -27,13 +28,21 @@ const Categories = () => {
     }
   }, [toysData, id]);
 
+  if (sorting === "High-Low") {
+    kidsToys.sort((a, b) => b.price - a.price);
+  }
+  if (sorting === "Low-High") {
+    kidsToys.sort((a, b) => a.price - b.price);
+  }
+
+  console.log(sorting);
   return (
     <section>
       <title>ToysLand || Toys</title>
-      <CategoryItem />
+      <CategoryItem setSorting={setSorting} />
 
       {/* category wise toys */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-7 mt-7">
+      <div className="grid xs_col_1 grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 mt-7">
         {loader ? (
           <div className="col-span-5 mx-auto">
             <Spinner />

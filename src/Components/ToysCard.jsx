@@ -2,47 +2,62 @@ import React from "react";
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router";
 
-const ToysCard = ({toys}) => {
-  const {toyName, price, rating, availableQuantity, pictureURL, toyId} = toys
-  
+const ToysCard = ({ toys }) => {
+  const { toyName, price, rating, availableQuantity, pictureURL, toyId } = toys;
+
   return (
-    <div className="p-4 border-gray-200 border rounded-xl 
-    flex flex-col gap-3 shadow-sm hover:shadow-lg transition-shadow">
+    <div
+      className="border-gray-200 border rounded-xl 
+    flex flex-col gap-3 shadow-sm hover:shadow-lg transition overflow-hidden hover:scale-102 duration-300 hover:border-primary group bg-white"
+    >
       {/* toys image */}
-      <figure className="rounded-md overflow-hidden h-46 2xl:h-72 shadow">
-        <img src={pictureURL} alt={toyName} className="w-full h-full object-cover object-center"/>
+      <figure className="rounded-md overflow-hidden h-48 2xl:h-72  relative">
+        {/* quantity */}
+        <div className="absolute z-20 right-2 top-2">
+          {availableQuantity === 0 ? (
+            <button className="bg-red-400 py-0.5 px-1 text-white rounded-full">
+              Out Stock
+            </button>
+          ) : (
+            <button className="bg-green-400 py-0.5 px-1 text-white rounded-full">
+              in Stock
+            </button>
+          )}
+        </div>
+
+        <img
+          src={pictureURL}
+          alt={toyName}
+          className="w-full h-full object-cover object-center scale-70 group-hover:scale-75 transition"
+        />
       </figure>
 
       {/* content */}
-      <div className="flex flex-col gap-0.5 grow">
+      <div className="p-4 flex flex-col gap-0.5 grow">
         {/* title */}
-        <p className="text-2xl text-neutral font-medium grow">{toyName}</p>
+        <p className=" text-neutral font-medium grow">{toyName}</p>
 
-        
         {/* rating */}
-          <div className="flex items-center gap-0.5">
-            {Array.from({ length: 5 }).map((_, index) =>
-              <FaStar
+        <div className="flex items-center gap-0.5">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <FaStar
               key={index}
-              className={
-                rating > index ? "text-[#FF8C00]" : "text-gray-300"
-              }
+              className={rating > index ? "text-[#FF8C00]" : "text-gray-300"}
               size={14}
             />
-            )}
-            <p className="text-secondary-content">({rating})</p>
-          </div>
+          ))}
+          <p className="text-secondary-content">({rating})</p>
+        </div>
 
-          {/* quantity */}
-          {availableQuantity === 0 ? <p className="text-red-400 font-medium text-lg">Out Stock</p> : <p className="text-green-400 font-medium text-lg">Available Stock: {availableQuantity}</p>}
-        
+        <div className="flex items-center justify-between">
+          {/* price */}
+          <p className="text-xl font-semibold">{price}$</p>
 
-        {/* price */}
-        <p className="text-xl font-semibold">{price}$</p>
-      </div>
-
-      <div>
-        <Link to={`/toys-details/${toyId}`} className="btn bg-secondary/60 hover:bg-secondary text-sm text-primary-content">View More</Link>
+          {/* button */}
+          <Link to={`/toys-details/${toyId}`} className="my_btn">
+            View More
+          </Link>
+        </div>
       </div>
     </div>
   );
