@@ -45,7 +45,7 @@ const Register = () => {
     } else if (!/[a-z]/.test(password)) {
       return toast.error("Password must at least one lower case");
     } else if (!/[0-9]/.test(password)) {
-      return toast.error("Password must at least one lower case");
+      return toast.error("Password must at least one Number");
     } else if (!check) {
       return toast.error("Terms and condition not accept");
     }
@@ -163,8 +163,9 @@ const Register = () => {
           <label htmlFor="check">Accept Term & Conditions</label>
         </div>
 
-        <button className="my_btn !py-2 text-lg mt-2">
-          {loader && <Spinner />}Registration
+        <button className="my_btn !py-2 text-lg  mt-5 flex items-center justify-center gap-2">
+          <div className="w-5 h-5 overflow-hidden">{loader && <Spinner />}</div>
+          Register
         </button>
       </form>
 

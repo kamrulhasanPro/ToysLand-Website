@@ -87,12 +87,12 @@ const Navbar = () => {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full">
+                  <div className="w-10  rounded-full">
                     {user &&
                       (user.photoURL ? (
                         isRGB ? (
                           <div
-                            className={`flex items-center justify-center`}
+                            className={`flex items-center justify-center w-full h-full`}
                             style={{ background: user?.photoURL }}
                           >
                             <p className="text-2xl text-white">{firstLatter}</p>
@@ -114,11 +114,29 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 p-2 w-52 shadow"
                 >
                   <div className="flex gap-2 items-center">
-                    <img
-                      src={user?.photoURL}
-                      className="w-10 h-10 object-cover rounded-full"
-                      alt=""
-                    />
+                    <figure className="w-10 h-10 rounded-full overflow-hidden">
+                      {user &&
+                        (user.photoURL ? (
+                          isRGB ? (
+                            <div
+                              className={`flex items-center justify-center w-full h-full`}
+                              style={{ background: user?.photoURL }}
+                            >
+                              <p className="text-2xl text-white">
+                                {firstLatter}
+                              </p>
+                            </div>
+                          ) : (
+                            <img
+                              className="w-10 h-10"
+                              src={user?.photoURL}
+                              alt="Profile image"
+                            />
+                          )
+                        ) : (
+                          <FaCircleUser size={40} fill="#4CC9F0" />
+                        ))}
+                    </figure>
                     <div>
                       <h4 className="font-semibold">{user?.displayName}</h4>
                       {/* <p className="text-sm text-wrap">{user?.email}</p> */}
@@ -128,13 +146,9 @@ const Navbar = () => {
                   <MyLink className={""} to={"/profile"}>
                     Profile
                   </MyLink>
-
-                  <li>
-                    <a>Settings</a>
-                  </li>
                   <button
                     onClick={logOutClick}
-                    className="btn btn-error text-white !py-0.5"
+                    className="btn btn-error text-white !py-0.5 mt-2"
                   >
                     LogOut
                   </button>

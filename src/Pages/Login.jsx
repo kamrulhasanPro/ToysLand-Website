@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router";
-import {useAuth} from '../Hooks/useAuth';
+import { useAuth } from "../Hooks/useAuth";
 import { toast } from "react-toastify";
 import Spinner from "../Components/Spinner";
 import GoogleLogin from "../Components/GoogleLogin";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {loginUser, loader, setLoader} = useAuth()
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [email, setEmail]= useState('')
+  const { loginUser, loader, setLoader } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [email, setEmail] = useState("");
 
   const loginSubmit = (e) => {
     e.preventDefault();
@@ -21,17 +21,17 @@ const Login = () => {
 
     //login
     loginUser(email, password)
-    .then(() => {
-      toast.success('login Success')
-      navigate(location?.state || '/')
-      e.target.reset()
-    })
-    .catch(err => {
-      // console.log(err);
-      toast.error(err.code)
-      setLoader(false)
-    })
-  }
+      .then(() => {
+        toast.success("login Success");
+        navigate(location?.state || "/");
+        e.target.reset();
+      })
+      .catch((err) => {
+        // console.log(err);
+        toast.error(err.code);
+        setLoader(false);
+      });
+  };
 
   return (
     <div className="max-w-[600px] mx-auto bg-primary/20 p-10 rounded-md mt-2.5 shadow-md">
@@ -80,20 +80,30 @@ const Login = () => {
         />
 
         {/* forget */}
-        <Link to={'/login/forget'} state={{email}} className="mt-2 text-secondary-content hover:text-neutral inline">
+        <Link
+          to={"/login/forget"}
+          state={{ email }}
+          className="mt-2 text-secondary-content hover:text-neutral inline"
+        >
           Forget Password
         </Link>
 
-        <button className="my_btn !py-2 text-lg  mt-5 ">{loader && <Spinner/>}Login</button>
+        <button className="my_btn !py-2 text-lg  mt-5 flex items-center justify-center gap-2">
+          <div className="w-5 h-5 overflow-hidden">{loader && <Spinner />}</div>
+          Login
+        </button>
       </form>
 
       {/* google login */}
-      <GoogleLogin/>
+      <GoogleLogin />
 
       {/* don't account */}
       <p className="text-center mt-5">
         don't Have An Account ?{" "}
-        <Link to={"/register"} className="text-primary-content underline text-lg">
+        <Link
+          to={"/register"}
+          className="text-primary-content underline text-lg"
+        >
           Register
         </Link>
       </p>
